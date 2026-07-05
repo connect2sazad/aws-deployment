@@ -9,6 +9,9 @@ resource "aws_instance" "webserver" {
   }
 
   vpc_security_group_ids = [aws_security_group.webserver_sg.id]
+
+  user_data = file("${path.module}/user_data.sh")
+
 }
 
 output "instance_public_ip" {
