@@ -57,30 +57,23 @@ DynamoDB (State Lock)
 # 📂 Project Structure
 
 ```text
-terraform-aws-php-mysql/
+aws-deployment/
 │
-├── backend/
-│   ├── backend.tf
-│   └── README.md
+│── provider.tf
+│── versions.tf
+│── variables.tf
+│── terraform.tfvars
+│── outputs.tf
+│── data.tf
+│── networking.tf
+│── security_group.tf
+│── keypair.tf
+│── iam.tf
+│── s3.tf
+│── ec2.tf
+│── rds.tf
+│── userdata.sh
 │
-├── terraform/
-│   ├── provider.tf
-│   ├── versions.tf
-│   ├── variables.tf
-│   ├── terraform.tfvars
-│   ├── outputs.tf
-│   ├── data.tf
-│   ├── networking.tf
-│   ├── security_group.tf
-│   ├── keypair.tf
-│   ├── iam.tf
-│   ├── s3.tf
-│   ├── ec2.tf
-│   ├── rds.tf
-│   └── userdata.sh
-│
-├── app/
-│   └── PHP Application
 │
 ├── screenshots/
 │
@@ -98,7 +91,6 @@ Create a remote backend for storing the Terraform state.
 Resources:
 
 - Amazon S3 Bucket
-- DynamoDB Table
 
 Purpose:
 
@@ -201,11 +193,9 @@ Using User Data, automatically install:
 - Apache2
 - PHP
 - PHP MySQL Extension
-- PHP XML Extension
-- PHP Curl
-- PHP Zip
 - Git
 - MySQL Client
+- Composer
 
 ---
 
@@ -274,7 +264,6 @@ Test:
 | IAM | Secure access to S3 |
 | Security Groups | Network security |
 | Amazon VPC | Networking |
-| DynamoDB | Terraform State Locking |
 | Terraform | Infrastructure as Code |
 
 ---
@@ -316,7 +305,7 @@ terraform plan
 ## Deploy Infrastructure
 
 ```bash
-terraform apply
+terraform apply --auto-approve
 ```
 
 ---
@@ -324,7 +313,15 @@ terraform apply
 ## Destroy Infrastructure
 
 ```bash
-terraform destroy
+terraform destroy --auto-approve
+```
+
+---
+
+## Graph Infrastructure
+
+```bash
+terraform graph | dot -Tpdf > graph.pdf
 ```
 
 ---
