@@ -20,6 +20,8 @@ This project demonstrates how to provision and configure AWS resources using Ter
 
 ## 🏗️ Architecture
 
+![Architecture Diagram](./graph.svg)
+
 ```text
                         GitHub Repository
                                │
