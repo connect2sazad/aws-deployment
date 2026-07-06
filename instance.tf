@@ -10,7 +10,13 @@ resource "aws_instance" "webserver" {
 
   vpc_security_group_ids = [aws_security_group.webserver_sg.id]
 
-  user_data = file("${path.module}/user_data.sh")
+  user_data = templatefile("${path.module}/user_data.sh", {
+    db_host     = aws_db_instance.rds_db.address
+    db_port     = aws_db_instance.rds_db.port
+    db_username = var.db_username
+    db_password = var.db_password
+    db_name     = var.db_name
+  })
 
 }
 

@@ -27,6 +27,6 @@ resource "aws_db_instance" "rds_db" {
   multi_az = false
 }
 
-output "rds_endpoint"{
-    value = aws_db_instance.rds_db.endpoint
+output "rds_endpoint" {
+  value = aws_db_instance.rds_db.endpoint
 }

@@ -49,6 +49,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_rds_ingress" {
   ip_protocol = "tcp"
   to_port     = each.value
 
+# attach the ec2 security group to rds security group
   referenced_security_group_id = aws_security_group.webserver_sg.id
 }
 
