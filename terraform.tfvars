@@ -15,3 +15,6 @@ rds_ingress_ports = {
 db_name     = "online_rest"
 db_username = "root"
 db_password = "1234567890"
+
+# s3 bucket name
+s3_bucket_name = "webserver-s3-bkt"

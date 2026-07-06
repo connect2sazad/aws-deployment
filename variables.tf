@@ -31,3 +31,10 @@ variable "db_username" {
 variable "db_password" {
   type = string
 }
+
+
+
+# s3
+variable "s3_bucket_name" {
+  type = string
+}

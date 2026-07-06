@@ -16,7 +16,13 @@ resource "aws_instance" "webserver" {
     db_username = var.db_username
     db_password = var.db_password
     db_name     = var.db_name
+    s3_region   = var.region
+    s3_bucket   = var.s3_bucket_name
   })
+
+
+  # attach the instance profile that attaches permissions to the S3 bucket
+  iam_instance_profile = aws_iam_instance_profile.webserver_profile.name
 
 }
 
